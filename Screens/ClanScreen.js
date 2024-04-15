@@ -135,7 +135,7 @@ const Clan_Leaderboard_Wars = ({text,SelectedOption,SetSelectedOption}) => (
     <TouchableOpacity onPress={()=>{
     SetSelectedOption(text)
   }}>
-    <Text style={{fontSize:16,fontWeight:600}}>{text}</Text>
+    <Text style={{fontSize:16,fontWeight:600, color:SelectedOption === text ? "black" : "#eee"}}>{text}</Text>
     </TouchableOpacity>
   </View>
 

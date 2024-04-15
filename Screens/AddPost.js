@@ -72,7 +72,7 @@ export default function AddPost() {
 
                 { imageUrl === "hhh" ? (
                   <View style={{marginTop:"32%",alignItems:"center"}}>
-                    <TextInput style={{ fontSize: 20,backgroundColor:"#484646",padding:12,width:"80%",borderRadius:15 }} placeholder='Image Url' onChangeText={text => setImageUrl(text)} placeholderTextColor={"#eee"}/>  
+                    <TextInput style={{ fontSize: 20,backgroundColor:"#484646",padding:12,width:"80%",borderRadius:15 }} placeholder='Image Url' onChangeText={text => setImageUrl(text)} placeholderTextColor={"grey"}/>  
                   </View>
                   )  : (
                   <TouchableOpacity onPress={()=> setImageUrl("hhh")}>
@@ -92,14 +92,14 @@ export default function AddPost() {
             {/* Caption */}
             <Text style={{ color: "#eee", marginLeft: 27, fontSize: 18, marginTop: 25 }}>Caption</Text>
             <View style={{alignItems:"center",marginTop:16,flexDirection:"row",marginLeft:"7%"}}>
-              <TextInput style={{backgroundColor:"#484646",color:"#eee", padding:8,width:"85%",borderRadius:15, fontSize:18}} onChangeText={text => setCaptions(text)}  placeholder='Enter Caption' placeholderTextColor={"#eee"}/>
+              <TextInput style={{backgroundColor:"#484646",color:"#eee", padding:8,width:"85%",borderRadius:15, fontSize:18}} onChangeText={text => setCaptions(text)}  placeholder='Enter Caption' placeholderTextColor={"grey"}/>
               <AntDesign style={{marginLeft:10}} name='book' size={25} color={"#141414"} />
             </View>
 
             {/* Location */}
             <Text style={{ color: "#eee", marginLeft: 27, fontSize: 18, marginTop: 20 }}>Location</Text>
             <View style={{alignItems:"center",marginTop:16,flexDirection:"row",marginLeft:"7%"}}>
-              <TextInput style={{backgroundColor:"#484646",color:"#eee", padding:8,width:"85%",borderRadius:15, fontSize:18}} onChangeText={text => setLocation(text)}  placeholder='Enter Location' placeholderTextColor={"#eee"}/>
+              <TextInput style={{backgroundColor:"#484646",color:"#eee", padding:8,width:"85%",borderRadius:15, fontSize:18}} onChangeText={text => setLocation(text)}  placeholder='Enter Location' placeholderTextColor={"grey"}/>
               <Entypo style={{marginLeft:10}} name='location' size={25} color={"#141414"} />
             </View>
             
@@ -132,7 +132,7 @@ export default function AddPost() {
             <Text style={{ color: "#eee", marginLeft: 27, fontSize: 18, marginTop: 20 }}>Tags</Text>
             <View style={{flexDirection:"row",backgroundColor:"#191B1E",width:"85%",padding:8,borderWidth:1,borderColor:"#eee", marginLeft:"7%",marginTop:15}}>
             <AntDesign style={{marginTop:4}} name='search1' size={20} color={"#eee"}/>
-            <TextInput style={{ color: '#eee', fontSize: 18, marginLeft: 5 }} placeholder='Search Tags' placeholderTextColor={'#eee'} onChangeText={handleSearch}/>
+            <TextInput style={{ color: '#eee', fontSize: 18, marginLeft: 5, }} placeholder='Search Tags' placeholderTextColor={'grey'} onChangeText={handleSearch}/>
             </View>
             <View style={{height:0.5,backgroundColor:"#eee",width:"85%",marginTop:29,marginLeft:"7%"}}></View>
             
@@ -143,7 +143,7 @@ export default function AddPost() {
 
 
           {/* Discard-Post-Buttons */}
-          <View style={{marginTop:25,flexDirection:"row",justifyContent:"space-between",marginHorizontal:25}}>
+          <View style={{marginTop:25,flexDirection:"row",justifyContent:"space-between",marginHorizontal:25,marginHorizontal:10}}>
             <TouchableOpacity onPress={()=> discardPost()}>
               <View style={{height:60,width:150,borderRadius:20,backgroundColor:"#484646",justifyContent:"center",alignItems:"center"}}>
                 <Text style={{fontSize:18,fontWeight:600,color:"white"}}>Discard</Text>
@@ -151,9 +151,9 @@ export default function AddPost() {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=> {
-              navigation.navigate("Profile",{imageUrl, selectedTags, caption, location})
+              navigation.navigate("PostDemo", { imageUrl, selectedTags, caption, location });
             }}>
-              <View style={{height:60,width:150,borderRadius:20,backgroundColor:"#FDCE00",justifyContent:"center",alignItems:"center"}}>
+              <View style={{height:60,width:150,borderRadius:20,backgroundColor:"#FDCE00",justifyContent:"center",alignItems:"center",marginHorizontal:5}}>
               <Text style={{fontSize:18,fontWeight:600}}>Post</Text>
               </View>
             </TouchableOpacity>

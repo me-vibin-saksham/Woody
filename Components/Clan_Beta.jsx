@@ -24,7 +24,7 @@ export default function Clan_Beta() {
     <View style={{marginTop:10, alignItems:"center"}}>
     {/* Search-Bar */}
       <View style={{flexDirection:"row",height:55,width:"90%",backgroundColor:"#1E2237",borderRadius:20,alignItems:"center",justifyContent:"space-between"}}>
-        <TextInput style={{fontSize:17, color:"#eee",marginLeft:25}} placeholder='Search Clan' onChangeText={(t)=>userSearched(t)}/>
+        <TextInput placeholderTextColor={"grey"} style={{fontSize:17, color:"#eee",marginLeft:25}} placeholder='Search Clan' onChangeText={(t)=>userSearched(t) }/>
         <View style={{height:37, width:37, borderRadius:30, backgroundColor:"#191B1E",justifyContent:"center",alignItems:"center",marginRight:8}}>
         <AntDesign name='search1' color={"#eee"} size={21} />
         </View>
@@ -45,7 +45,7 @@ export default function Clan_Beta() {
         ))}
 
         {filteredClans.length !=0 && filteredClans.length <8 &&(
-        <View style={{height:filteredClans.length*100, width:"100%", backgroundColor:"#191E1B", position:"absolute", borderRadius:20, top:-30 }}>
+        <View style={{height:filteredClans.length*100+10, width:"100%", backgroundColor:"#191E1B", position:"absolute", borderRadius:20, top:-30 }}>
         {filteredClans.map((data,index)=>(
         <View style={{marginHorizontal:20}} key={index}>
         <Clanbase image_url={data.image_url} num={index+1} title={data.clanname} points={data.points}/>

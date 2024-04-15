@@ -40,7 +40,7 @@ export default function BottomTabs({activetab}) {
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => handleTabPress('Reel')}>
-                    <Entypo style={{marginRight:15}} name="video-camera" size={31} color={activeTab === 'Reel' ? "#FDCE00" : "#eee"} />
+                    <AntDesign style={{marginRight:15}} name="gift" size={32} color={activeTab === 'Reel' ? "#FDCE00" : "#eee"} />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => {handleTabPress('Clan')}}>

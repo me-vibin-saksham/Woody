@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity, TextInput, ScrollView, Dimensions } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation, useRoute} from '@react-navigation/native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
@@ -18,21 +18,8 @@ const { height, width } = Dimensions.get("screen");
 
 export default function ProfileScreen() {
 
-
-    const [modalVisible, setModalVisible] = useState(false);
-    const [modalContent, setModalContent] = useState(null);
     const [selectedOption,setSelectedOption] = useState("Posted")
     const navigation = useNavigation();
-
-    const openModal = (image1, image2, title, description) => {
-      setModalContent({ image1, image2, title, description });
-      setModalVisible(true);
-    };
-  
-    const closeModal = () => {
-      setModalVisible(false);
-      setModalContent(null)
-    };
 
     useLayoutEffect(()=>{
         navigation.setOptions({
@@ -71,11 +58,11 @@ export default function ProfileScreen() {
       <Post_Follower_Following/>
 
 
-      {/* Posted-Reels-Saved */}
+      {/* Posted-Rewards-Saved */}
       <View style={{height:67,width:"100%",backgroundColor:"#1F2124",marginTop:20,borderRadius:25}}>
         <View style={{flexDirection:"row",marginHorizontal:10}}>
         <Options_bar text={"Posted"} SelectedOption={selectedOption} SetSelectedOption={setSelectedOption} />
-        <Options_bar text={'Reels'} SelectedOption={selectedOption} SetSelectedOption={setSelectedOption} />
+        <Options_bar text={'Rewards'} SelectedOption={selectedOption} SetSelectedOption={setSelectedOption} />
         <Options_bar text={'Saved'} SelectedOption={selectedOption} SetSelectedOption={setSelectedOption} />
         </View>
       </View>
@@ -92,7 +79,7 @@ export default function ProfileScreen() {
       <View style={{ flexDirection:"row",flexWrap:"wrap",}}>
       {demoImages.map((data, index) => (
       < View key={index}>
-        <PostedImages image_url={data.image_url} OpenModel={openModal} CloseModal={closeModal} />
+        <PostedImages image_url={data.image_url}/>
       </View>
     ))}
     </View>
@@ -117,11 +104,6 @@ export default function ProfileScreen() {
 
 
 
-const RenderModal = () => (
-  <View>
-
-  </View>
-)
 
 
 
@@ -131,7 +113,7 @@ const Options_bar = ({text,SelectedOption,SetSelectedOption}) => (
     <TouchableOpacity onPress={()=>{
     SetSelectedOption(text)
   }}>
-    <Text style={{fontSize:16}}>{text}</Text>
+    <Text style={{fontSize:16, color:SelectedOption === text ? "black" : "#eee"}}>{text}</Text>
     </TouchableOpacity>
   </View>
   
@@ -139,10 +121,10 @@ const Options_bar = ({text,SelectedOption,SetSelectedOption}) => (
 
 const PostedImages = ({ image_url, OpenModal, CloseModal}) => (
   <View style={{marginHorizontal: 2.2,marginVertical:2.2}}>
-    <View style={{height: 150, width: width / 3.1}}>
-      <TouchableOpacity onPress={()=> OpenModal() }>
+    <View style={{height: 150, width: width / 3.11}}>
+      
       <Image style={{height: 150, width: width / 3.1,}} source={{uri:image_url}} />
-      </TouchableOpacity>
+      
     </View>
   </View>
 );
@@ -184,8 +166,8 @@ const Points = () => (
       <Image style={{height:38,width:38,borderRadius:30,marginLeft:1,marginTop:1}} source={{uri:"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9f3f9bd9-0673-4276-bb34-71ece2a5820e/dfmgvtx-8b73761b-0527-4d12-b86c-92a04631a8c9.png/v1/fill/w_1920,h_1920,q_80,strp/darth_vader__ai_art__by_3d1viner_dfmgvtx-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTkyMCIsInBhdGgiOiJcL2ZcLzlmM2Y5YmQ5LTA2NzMtNDI3Ni1iYjM0LTcxZWNlMmE1ODIwZVwvZGZtZ3Z0eC04YjczNzYxYi0wNTI3LTRkMTItYjg2Yy05MmEwNDYzMWE4YzkucG5nIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.HpHZ9AQtqpRbJO3cAL-BUBWNaN4OhElCGiaH7QKJo8M"}}/>
       </View>
     <View style={{flexDirection:"row"}}>
-      <Text style={{fontSize:17,fontWeight:700,marginTop:6,marginLeft:45}} >Streak :</Text>
-      <Text style={{fontSize:17,fontWeight:700,marginTop:7,marginLeft:18,color:"#FDCE00"}} >3K Points</Text>
+      <Text style={{fontSize:17,fontWeight:700,marginTop:6,marginLeft:45}} >Streak </Text>
+      <Text style={{fontSize:17,fontWeight:700,marginTop:7,marginLeft:20,color:"#FDCE00"}} >3K Points</Text>
     </View>
   </View>
 )

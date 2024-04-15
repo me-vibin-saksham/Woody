@@ -8,6 +8,7 @@ import ReelScreen from './Screens/ReelScreen';
 import ClanScreen from './Screens/ClanScreen';
 import ProfileScreen from './Screens/ProfileScreen';
 import AddPost from './Screens/AddPost';
+import PostDeemo from './Screens/PostDeemo';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const App = () => {
         <Stack.Screen name='Clan' component={ClanScreen}/>
         <Stack.Screen name='Profile' component={ProfileScreen}/>
         <Stack.Screen name='AddPost' component={AddPost}/>
+        <Stack.Screen name='PostDemo' component={PostDeemo}/>
       </Stack.Navigator>
     </NavigationContainer>
     

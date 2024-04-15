@@ -24,8 +24,15 @@ export default function ReelScreen() {
 
     <>
     <View style={{backgroundColor:"#141414",flex:1}}>
-    <View style={{marginTop:45}}>
-      <Text>ReelScreen</Text>
+    <View style={{marginTop:300}}>
+      <Text style={{color:"#eee", fontSize:25, fontWeight:600, marginLeft:25}}>Your Rewards</Text>
+
+      <View style={{justifyContent:"center",alignItems:"center", marginTop:40}}>
+        <View style={{borderWidth:2, borderColor:"#EEE", height:60, width:300, justifyContent:"center", alignItems:"center", }}>
+          <Text style={{color:"#eee"}}>Nothing to show currently.</Text>
+        </View>
+
+      </View>
     </View>
     </View>
     

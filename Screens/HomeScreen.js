@@ -20,15 +20,19 @@ export default function HomeScreen() {
   const [followingData, setFollowingData] = useState(demoFollowingData);
   const [discoverData, setDiscoverData] = useState(demoDiscoverData);
 
-  const updateLikeCount = (index) => {
+  const updateLikeCount = (index, postIsLiked) => {
     const newData = isSelected === 'Following' ? [...followingData] : [...discoverData];
-    newData[index].likes += 1;
+    newData[index].likes += postIsLiked ? -1 : 1; 
     if (isSelected === 'Following') {
       setFollowingData(newData);
     } else {
       setDiscoverData(newData);
     }
+    
   };
+  
+  
+  
 
   
 
@@ -123,18 +127,18 @@ export default function HomeScreen() {
 
 
             {/* Posts-Feed */}
-            { isSelected === "Following" &&(
-            demoFollowingData.map((data,index)=>(
-            <View key={index}>
-              <Post_Feed title={data.title} likes={data.likes} comments={data.comments} description={data.description} profile_image_url={data.profile_image_url} post_image_url={data.post_image_url} index={index} updateLikeCount={() => updateLikeCount(index)}/>
-            </View>
-            ))
+            {isSelected === "Following" && (
+              demoFollowingData.map((data, index) => (
+                <View key={index}>
+                    <Post_Feed title={data.title} likes={data.likes} comments={data.comments} description={data.description} profile_image_url={data.profile_image_url} post_image_url={data.post_image_url} index={index} updateLikeCount={(postIsLiked) => updateLikeCount(index, postIsLiked)} />
+              </View>
+              ))
             )}
 
             { isSelected === "Discover" &&(
             demoDiscoverData.map((data,index)=>(
             <View key={index}>
-              <Post_Feed title={data.title} likes={data.likes} comments={data.comments} description={data.description} profile_image_url={data.profile_image_url} post_image_url={data.post_image_url} index={index} updateLikeCount={() => updateLikeCount(index)}/>
+              <Post_Feed title={data.title} likes={data.likes} comments={data.comments} description={data.description} profile_image_url={data.profile_image_url} post_image_url={data.post_image_url} index={index} updateLikeCount={(postIsLiked) => updateLikeCount(index, postIsLiked)}/>
             </View>
             ))
             )}

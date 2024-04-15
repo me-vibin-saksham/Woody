@@ -17,8 +17,8 @@ export const Post_Feed = ({title,likes,comments,description,profile_image_url,po
     const [postIsLiked, setPostIsLiked] = useState(false)
   
     const handleLike = () => {
+      updateLikeCount(postIsLiked);
       setPostIsLiked((prev) => !prev);
-      updateLikeCount(index);
     };
   
     return(
