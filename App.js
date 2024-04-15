@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import ReelScreen from './Screens/ReelScreen';
 import ClanScreen from './Screens/ClanScreen';
 import ProfileScreen from './Screens/ProfileScreen';
+import AddPost from './Screens/AddPost';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ const App = () => {
         <Stack.Screen name='Reel' component={ReelScreen}/>
         <Stack.Screen name='Clan' component={ClanScreen}/>
         <Stack.Screen name='Profile' component={ProfileScreen}/>
+        <Stack.Screen name='AddPost' component={AddPost}/>
       </Stack.Navigator>
     </NavigationContainer>
     

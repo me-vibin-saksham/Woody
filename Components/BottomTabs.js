@@ -20,10 +20,16 @@ export default function BottomTabs({activetab}) {
 
     return (
         <View style={{ height: 75, width: "100%", backgroundColor: "#191B1E" }}>
-            
-        <View style={{justifyContent:"center", alignItems:"center", height:65,width:65, borderRadius:50 , backgroundColor:"#FDCE00", position:"absolute",bottom:43,right:"42.5%"}}>
-        <AntDesign name='plus' size={30} color={"black"}/>
-        </View>
+
+        
+            <View style={{justifyContent:"center", alignItems:"center", height:65,width:65, borderRadius:50 , backgroundColor:"#FDCE00", position:"absolute",bottom:43,right:"42.5%"}}>
+            <TouchableOpacity onPress={()=> navigation.navigate("AddPost")}>
+            <AntDesign name='plus' size={30} color={"black"}/>
+            </TouchableOpacity>
+            </View>
+        
+
+        
             <View style={{ flexDirection: "row", justifyContent: "space-around", alignItems: "center", height: "100%" }}>
                 <TouchableOpacity onPress={() => {
                     navigation.navigate("Home")
